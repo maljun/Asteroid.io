@@ -13,8 +13,8 @@ function init() {
 
     scene = new THREE.Scene();
 
-    ship1 = new Ship('W','A','S','D');
-    ship2 = new Ship('I','J','K','L');
+    ship1 = new Asteroidio.Ship('W','A','S','D');
+    ship2 = new Asteroidio.Ship('I','J','K','L');
     scene.add( ship1.mesh );
     scene.add( ship2.mesh );
 
