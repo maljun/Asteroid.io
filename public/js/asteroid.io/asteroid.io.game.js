@@ -29,3 +29,7 @@ Asteroidio.Game.prototype.act = function() {
 Asteroidio.Game.prototype.render = function() {
     this.renderer.render( this.scene, this.camera );
 }
+
+Asteroidio.Game.prototype.getState = function() {
+    return "42";
+}

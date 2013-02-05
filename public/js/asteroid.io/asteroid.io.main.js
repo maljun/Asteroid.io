@@ -12,4 +12,5 @@ function animate() {
     requestAnimationFrame( animate );
     game.act();
     game.render();
+    socket.replicate(game.getState());
 }
