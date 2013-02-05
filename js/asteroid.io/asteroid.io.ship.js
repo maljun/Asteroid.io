@@ -6,15 +6,15 @@ Asteroidio.Ship = function(up, left, down, right) {
 	this.down = down;
 	this.right = right;
 	this.speed = 0;
-    this.mesh = this.createModel();
-    this.setPosition( -200 + Math.random() * 400, -200 + Math.random() * 400);
+  this.mesh = this.createModel();
+  this.setPosition( -200 + Math.random() * 400, -200 + Math.random() * 400);
 }
 
 Asteroidio.Ship.prototype.createModel = function() {
 	var geometry = new THREE.CubeGeometry( 200, 200, 200 );
 	var color = Math.random() * 16777215;
-    var material = new THREE.MeshBasicMaterial( { color: color, wireframe: false } );
-    return new THREE.Mesh( geometry, material );
+  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: false } );
+  return new THREE.Mesh( geometry, material );
 }
 
 Asteroidio.Ship.prototype.changeHeading = function(deltaZ) {
@@ -23,7 +23,7 @@ Asteroidio.Ship.prototype.changeHeading = function(deltaZ) {
 
 Asteroidio.Ship.prototype.setPosition = function(x, y) {
 	this.mesh.position.x = x;
-    this.mesh.position.y = y;
+  this.mesh.position.y = y;
 }
 
 Asteroidio.Ship.prototype.takeCommands = function(keyboard) {
@@ -36,11 +36,11 @@ Asteroidio.Ship.prototype.takeCommands = function(keyboard) {
     }
 
     if(keyboard.pressed(this.up)){
-      this.speed = 10;
+      this.speed = 20;
     }
 
     if(keyboard.pressed(this.down)) {
-      this.speed = -10;
+      this.speed = -20;
     }
 }
 
