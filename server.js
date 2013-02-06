@@ -3,6 +3,7 @@ var express = require('express'),
  port = 80,
  server = app.listen(port),
  io = require('socket.io').listen(server);
+ io.set('log level', 0)
 
 app.get("/", function(req, res) {
   res.redirect("/index.html");
@@ -21,9 +22,8 @@ app.configure(function(){
 
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('gamestate', function (data) {
-    console.log(data);
+  socket.on('playerstate', function (state) {
+    socket.emit('gamestate', state);  
   });
 });
 

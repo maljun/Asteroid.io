@@ -1,13 +1,17 @@
 var Asteroidio = Asteroidio || {};
 
-Asteroidio.Socket = function() {
+Asteroidio.Socket = function(enemy) {
+	this.enemy = enemy;
 	this.socket = io.connect('http://localhost');
- 	this.socket.on('news', function (data) {
-    console.log(data);
-    this.socket.emit('my other event', { my: 'HELLLOOOO' });
-  });
+ 	this.socket.on('gamestate', this.updateState.bind(this));
 };
 
+Asteroidio.Socket.prototype.updateState = function(data) {
+	this.enemy.mesh.position = data.position;
+	this.enemy.mesh.rotation = data.rotation;
+	this.enemy.mesh.position.x += 300;
+}
+
 Asteroidio.Socket.prototype.replicate = function( state ) {
-	this.socket.emit('gamestate', { data: state });
+	this.socket.emit('playerstate', state);
 }
