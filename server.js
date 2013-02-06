@@ -23,7 +23,7 @@ app.configure(function(){
 
 io.sockets.on('connection', function (socket) {
   socket.on('playerstate', function (state) {
-    socket.emit('gamestate', state);  
+    socket.broadcast.emit('gamestate', state);  
   });
 });
 
