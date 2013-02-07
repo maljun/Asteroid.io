@@ -2,7 +2,7 @@ var Asteroidio = Asteroidio || {};
 
 Asteroidio.Socket = function(enemy) {
 	this.enemy = enemy;
-	this.socket = io.connect('http://192.168.1.74');
+	this.socket = io.connect(window.location.hostname);
  	this.socket.on('gamestate', this.updateState.bind(this));
 };
 
