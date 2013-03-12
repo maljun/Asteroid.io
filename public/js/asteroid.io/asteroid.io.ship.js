@@ -1,13 +1,20 @@
 var Asteroidio  = Asteroidio        || {};
 
-Asteroidio.Ship = function(up, left, down, right) {
+Asteroidio.Ship = function() {
+    this.up = "";
+    this.left = "";
+    this.down = "";
+    this.right = "";
+    this.speed = 0;
+    this.mesh = this.createModel();
+    this.setPosition( -200 + Math.random() * 400, -200 + Math.random() * 400);
+}
+
+Asteroidio.Ship.prototype.setControls = function(up, left, down, right) {
     this.up = up;
     this.left = left;
     this.down = down;
     this.right = right;
-    this.speed = 0;
-    this.mesh = this.createModel();
-    this.setPosition( -200 + Math.random() * 400, -200 + Math.random() * 400);
 }
 
 Asteroidio.Ship.prototype.createModel = function() {

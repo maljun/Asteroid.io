@@ -1,15 +1,8 @@
 var game;
 
 init();
-animate();
 
 function init() {
     game = new Asteroidio.Game();
-}
-
-function animate() {
-    requestAnimationFrame( animate );
-    game.act();
-    game.replicateState();
-    game.render();
+    game.animate();
 }
