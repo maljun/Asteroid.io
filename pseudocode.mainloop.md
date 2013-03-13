@@ -3,21 +3,21 @@
 connect to server
 
 if enemy connect
-	add enemy
+-	add enemy
 
 if enemy disconnect
-	remove enemy
+-	remove enemy
 
 loop
-	loop enemies
-		replay enemy action
+-	loop enemies
+-	-	replay enemy action
 
-	me act
+-	me act
 
 loop ≈30 fps
-	send my current position and actions
+-	send my current position and actions
 
 animationFrame 60 fps
-	scene render
+-	scene render
 
 disconnect
